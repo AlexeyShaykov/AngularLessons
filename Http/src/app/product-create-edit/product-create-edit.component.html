@@ -1,0 +1,29 @@
+<div class="container" *ngIf="productForm">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit(productForm)">
+    <div class="form-group">
+      <label for="name"></label>
+      <input type="text" name="name" id="name" class="form-control"
+      formControlName="name">
+      <div class="alert alert-danger" *ngIf="checkError('name', 'required')">
+        required field
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price"></label>
+      <input type="text" name="price" id="price" class="form-control"
+      formControlName="price">
+      <div class="alert alert-danger" *ngIf="checkError('price', 'required')">
+        required field
+      </div>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      {{errorMessage}}
+    </div>
+    <input type="button" class="btn btn-default" routerLink="/products" value="Cancel" />
+    <input type="submit" class="btn btn-primary" [disabled]="productForm.invalid" value="Save" />
+
+  </form>
+
+</div>

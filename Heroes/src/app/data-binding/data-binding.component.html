@@ -1,0 +1,21 @@
+<label for="inputA">X</label>
+<input id="inputA" type="number" [(ngModel)]="inputA">
+<label for="inputB">Y</label>
+<input id="inputB" type="number" [(ngModel)]="inputB">
+<button (click)="handleCalculate()">Calculate</button>
+<div>
+  Result: {{ inputA * inputB }} or {{ result }}
+</div>
+
+<label for="inputAA">X</label>
+<input id="inputAA" type="number" #Ainput>
+<label for="inputBB">Y</label>
+<input id="inputBB" type="number" #Binput>
+<button (click)="handleCalculated(Ainput.value, Binput.value)">Calculated2</button>
+<div>
+  Result: {{ result2 }}
+</div>
+
+<ul>
+  <li *ngFor="let item of ligenerator()" [class.active] = "selectedId === item" >{{ item }}</li>
+</ul>
